@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Odibee+Sans&family=Sarpanch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap');
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+
+#container {
+  border: 5px solid whitesmoke;
+  width: 87vw;
+  height: 90vh;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-right: 15px;
+}
+
+.entry {
+  width: 97%;
+  height: 330px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-around;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-left: 15px;
+
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.thumbnail {
+  width: 560px;
+  height: 315px;
+  margin-right: 25px;
+  border: 3px solid whitesmoke;
+  border-radius: 25px;
+  transition: 1.3s;
+}
+
+.text {
+  min-width: calc(95 * (100% - 560px - 15px) * .01);
+  height: 285px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.desc {
+  text-align: left;
+  color: pink;
+  font-family: Ramabhadra;
+  font-size: 23px;
+  border-left: 3px dashed white;
+  border-top: 3px dashed white;
+  border-radius: 10px;
+  padding-left: 5px;
+}
+
+.tags {
+  text-align: left;
+  color: rgb(197, 223, 157);
+  font-family: Ramabhadra;
+  font-size: 18px;
+  font-style: italic;
+  border-left: 3px dashed white;
+  border-radius: 10px;
+  padding-left: 5px;
+}
+
+.warn {
+  text-align: left;
+  color: rgb(220, 196, 153);
+  font-family: Ramabhadra;
+  font-size: 18px;
+  border-left: 3px dashed white;
+  border-radius: 10px;
+  padding-left: 5px;
+}
+
+.url {
+  text-align: left;
+  color: rgb(155, 209, 209);
+  font-family: Ramabhadra;
+  font-size: 18px;
+  border-left: 3px dashed white;
+  border-radius: 10px;
+  padding-left: 5px;
+}
+
+.url:hover {
+  color: rgb(50, 208, 208);
+  text-decoration: underline;
+}
+
+.full {
+  width: 87vw;
+  height: 90vh;
+  opacity: 0;
+}
+
+.videoBox {
+  width: 100%;
+  height: 100%;
+}
+
+#Rcontainer {
+  width: 6vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#videoControls {
+  height: 45%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: .8s;
+}
+
+button, .numberInput {
+  background-color: #000;
+  color: whitesmoke;
+  font-size: 25px;
+  width: 4vw;
+  height: 4vw;
+  border: 3px solid white;
+  margin-top: 10px;
+  transition: .8s;
+}
+
+button:active {
+  transform: translateY(10px) scale(.88);
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.invi {
+  width: 0px;
+  height: 0px;
+  background-color: transparent;
+  border: none;
+  color:transparent;
+  font-size: 0px;
+  resize: none;
+  transition: .8s;
+}
+
+.invi:hover {
+  background-color: transparent;
+  border: none;
+  color:transparent;
+}
+
+.invi:active {
+  background-color: transparent;
+  border: none;
+  color:transparent;
+}
