@@ -1,6 +1,6 @@
 const src = "vids/"
 const thumbSrc = "thumb/"
-const DATA = new Array(100).fill(2).map(id => {
+const DATA = [1, 2, 3, 12].map(id => {
     return {
         id,
         "img" : thumbSrc + id + ".png",
