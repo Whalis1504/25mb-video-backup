@@ -2,9 +2,10 @@
 
 Backups of my videos, resized to be under 25mb
 
-[Access here](https://whalis1504.github.io/25mb-video-backup/mainn.html)
+[Access here](https://whalis1504.github.io/25mb-video-backup/main.html)
 
 Command:
+
 ```bash
 ffmpeg -y ^
 -i "%%F" ^
