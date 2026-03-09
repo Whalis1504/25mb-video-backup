@@ -1,8 +1,13 @@
-function shorten(str, wantedLength, paddingLength) {
-  if (str.length <= wantedLength) return str
-  if (wantedLength <= paddingLength) return new Array(wantedLength).fill(".").join("")
-  var pad = new Array(paddingLength).fill(".").join("")
-  return str.split("").slice(0, wantedLength).join("") + pad
+var savedInnerHtml = ""
+var savedTop = 0
+async function init() {
+  var a = ""
+  DATA.forEach((i, id) => {
+    const thumbnail = `<img onclick = "generateVideo('${i.src}', 'th${id}')" loading = "lazy" class = "thumbnail" id = "th${id}" src="${i.img}" width="300">`
+    const textBelow = `<div class = "desc text">ID:${i.id}~Desc comin soon</div>`
+    a += `<div id = "${id}" class = "entry">${thumbnail}${textBelow}</div>`
+  })
+  document.getElementById('container').innerHTML = a
 }
 
 function copyToClipboard(a, id) {
@@ -28,6 +33,37 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+async function generateVideo(localLink, id) {
+  //console.log(id)
+  savedInnerHtml = document.getElementById('container').innerHTML
+  savedTop = document.getElementById('container').scrollTop
+
+  // document.getElementById("backbutton").classList.remove("invi")
+  // document.getElementById("numberInput").classList.remove("invi")
+  // document.getElementById("backwards").classList.remove("invi")
+  // document.getElementById("forwards").classList.remove("invi")
+  switchOn("videoControls")
+
+  document.getElementById(id).classList.add("full")
+  await sleep(870)
+
+  document.getElementById('container').innerHTML = `<video muted="muted" class = "videoBox" controls src="${localLink}" type="video/mp4" >`
+  document.getElementsByClassName('videoBox')[0].play()
+}
+
+//return from the full-screen video to thee list
+function back() {
+  // document.getElementById("backbutton").classList.add("invi")
+  // document.getElementById("numberInput").classList.add("invi")
+  // document.getElementById("backwards").classList.add("invi")
+  // document.getElementById("forwards").classList.add("invi")
+  switchOff("videoControls")
+
+  document.getElementById('container').innerHTML = savedInnerHtml
+  document.getElementById('container').scrollTop = savedTop
+}
+
+//skip backward in time
 function backward() {
   var a = Number(document.getElementById("numberInput").value)
   var element = document.getElementsByClassName('videoBox')[0]
@@ -37,6 +73,7 @@ function backward() {
   else element.currentTime = x
 }
 
+//skip forward in time
 function forward() {
   var a = Number(document.getElementById("numberInput").value)
   var element = document.getElementsByClassName('videoBox')[0]
@@ -46,6 +83,7 @@ function forward() {
   else element.currentTime = x
 }
 
+//switch off the full-screen video display
 function switchOff(parentId) {
   var element = document.getElementById(parentId).childNodes
   for (var i = 0; i < element.length; i++) {
@@ -57,6 +95,7 @@ function switchOff(parentId) {
   }
 }
 
+//switch on the full-screen video display
 function switchOn(parentId) {
   var element = document.getElementById(parentId).childNodes
   for (var i = 0; i < element.length; i++) {
